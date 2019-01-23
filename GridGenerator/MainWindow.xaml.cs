@@ -57,9 +57,7 @@ namespace GridGenerator
             CreateGrid newGrid = new CreateGrid();
 
             var gridValues = newGrid.NewGrid(txtb);
-
-            string jsonGrid = JsonConvert.SerializeObject(gridValues, Formatting.Indented);
-
+                        
             if (!File.Exists(gridFile))
             {
                 using (StreamWriter file = File.CreateText(@"MyGrid.json"))
@@ -67,6 +65,10 @@ namespace GridGenerator
                     JsonSerializer serializer = new JsonSerializer();
                     serializer.Serialize(file, gridValues);
                 }
+
+                MessageBox.Show("GRID saved successfully!");
+
+
             }
             
 
@@ -74,6 +76,9 @@ namespace GridGenerator
             
         }
 
-        
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.Shutdown();
+        }
     }
 }

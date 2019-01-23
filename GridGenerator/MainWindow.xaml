@@ -6,9 +6,11 @@
         xmlns:local="clr-namespace:GridGenerator"
         mc:Ignorable="d"
         Background="LightGray"
+        ResizeMode="NoResize"
+        
         Title="Grid Generator" Height="500" Width="800">
     <Grid>
-        <DockPanel Width="200" HorizontalAlignment="Left" Background="LightSteelBlue">
+        <DockPanel Width="200" Height="460" HorizontalAlignment="Left" Background="LightSteelBlue" Margin="5, 0, 0, 0">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*" />
@@ -19,9 +21,9 @@
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
-                <Button Grid.Column="1" Margin="10"></Button>
-                <Button Grid.Row="1" Margin="10"></Button>
-                <Button Grid.Row="2" Margin="10"></Button>
+                <Button Grid.Column="1" Margin="10" Content="NEW GRID" FontSize="20" FontWeight="Bold"></Button>
+                <Button Grid.Row="1" Margin="10" FontSize="20" FontWeight="Bold" Content=" GENERATE&#xa;PASSWORD"></Button>
+                <Button Grid.Row="2" Margin="10" Click="Exit_Click" FontSize="20" FontWeight="Bold">EXIT</Button>
             </Grid>
         </DockPanel>
         <DockPanel Width="570" Height="130" Margin="0, 5, 10, 0" HorizontalAlignment="Right"  VerticalAlignment="Top" Background="LightSteelBlue">
@@ -30,7 +32,26 @@
         </Grid>
         </DockPanel>
         <Grid Width="570" Height="320" Margin="100, 135, -100, 0" Background="OrangeRed">
-
+            <Label Content="A" Margin="50, 5 ,0 ,0" FontSize="16" FontWeight="Bold"></Label>
+            <Label Content="B" Margin="100, 5 ,0 ,0" FontSize="16" FontWeight="Bold"></Label>
+            <Label Content="C" Margin="150, 5 ,0 ,0" FontSize="16" FontWeight="Bold"></Label>
+            <Label Content="D" Margin="200, 5 ,0 ,0" FontSize="16" FontWeight="Bold"></Label>
+            <Label Content="E" Margin="250, 5 ,0 ,0" FontSize="16" FontWeight="Bold"></Label>
+            <Label Content="F" Margin="300, 5 ,0 ,0" FontSize="16" FontWeight="Bold"></Label>
+            <Label Content="G" Margin="350, 5 ,0 ,0" FontSize="16" FontWeight="Bold"></Label>
+            <Label Content="H" Margin="400, 5 ,0 ,0" FontSize="16" FontWeight="Bold"></Label>
+            <Label Content="I" Margin="450, 5 ,0 ,0" FontSize="16" FontWeight="Bold"></Label>
+            <Label Content="J" Margin="500, 5 ,0 ,0" FontSize="16" FontWeight="Bold"></Label>
+            <Label Content="1" Margin="8, 45, 0, 0" FontSize="16" FontWeight="Bold"></Label>
+            <Label Content="2" Margin="8, 90, 0, 0" FontSize="16" FontWeight="Bold"></Label>
+            <Label Content="3" Margin="8, 135, 0, 0" FontSize="16" FontWeight="Bold"></Label>
+            <Label Content="4" Margin="8, 180, 0, 0" FontSize="16" FontWeight="Bold"></Label>
+            <Label Content="5" Margin="8, 225, 0, 0" FontSize="16" FontWeight="Bold"></Label>
+            <Label Content="1" Margin="540, 45, 0, 0" FontSize="16" FontWeight="Bold"></Label>
+            <Label Content="2" Margin="540, 90, 0, 0" FontSize="16" FontWeight="Bold"></Label>
+            <Label Content="3" Margin="540, 135, 0, 0" FontSize="16" FontWeight="Bold"></Label>
+            <Label Content="4" Margin="540, 180, 0, 0" FontSize="16" FontWeight="Bold"></Label>
+            <Label Content="5" Margin="540, 225, 0, 0" FontSize="16" FontWeight="Bold"></Label>
             <Grid Name="theGrid" Width="500" Height="230" Margin="0, -20, 0, 0" Background="LightSteelBlue">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
