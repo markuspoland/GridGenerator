@@ -22,7 +22,7 @@ namespace GridGenerator
 
             foreach (TextBox box in textBoxes)
             {
-                grid.Add(box.Name, box.Text);
+                grid.Add(box.Name.ToUpper(), box.Text);
             }
 
             return grid;

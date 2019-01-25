@@ -22,7 +22,8 @@ namespace GridGenerator
     /// </summary>
     public partial class MainWindow : Window
     {
-        string gridFile = "MyGrid.json";
+        string gridFile = @"MyGrid.json";
+        Dictionary<string, string> loadedGrid;
 
         public MainWindow()
         {
@@ -43,6 +44,8 @@ namespace GridGenerator
             } else
             {
                 theGrid.Visibility = Visibility.Visible;
+                loadedGrid = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(gridFile));
+                FillGrid();
             }
 
                         
@@ -57,14 +60,12 @@ namespace GridGenerator
             CreateGrid newGrid = new CreateGrid();
 
             var gridValues = newGrid.NewGrid(txtb);
+
+            string json = JsonConvert.SerializeObject(gridValues, Formatting.Indented);
                         
             if (!File.Exists(gridFile))
             {
-                using (StreamWriter file = File.CreateText(@"MyGrid.json"))
-                {
-                    JsonSerializer serializer = new JsonSerializer();
-                    serializer.Serialize(file, gridValues);
-                }
+                File.WriteAllText(gridFile, json);
 
                 MessageBox.Show("GRID saved successfully!");
 
@@ -79,6 +80,39 @@ namespace GridGenerator
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             App.Current.Shutdown();
+        }
+
+        private void FillGrid()
+        {
+            IEnumerable<TextBox> collection = theGrid.Children.OfType<TextBox>();
+            List<TextBox> txtb = collection.ToList();
+            IEnumerable<string> gridValues = loadedGrid.Values;
+            List<string> values = gridValues.ToList();
+
+            foreach (TextBox box in txtb)
+            {
+                box.Text = values.First();
+                values.RemoveAt(0);
+            }
+
+        }
+
+        private void Clear_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult delete = MessageBox.Show("By clearing the GRID you will delete the content entirely. You will need to create a new one next time you run the application.", "Warning", MessageBoxButton.OKCancel);
+
+            if (delete == MessageBoxResult.OK)
+            {
+                IEnumerable<TextBox> collection = theGrid.Children.OfType<TextBox>();
+                List<TextBox> txtb = collection.ToList();
+
+                foreach (TextBox box in txtb)
+                {
+                    box.Text = "";
+                }
+
+                File.Delete(gridFile);
+            }
         }
     }
 }
