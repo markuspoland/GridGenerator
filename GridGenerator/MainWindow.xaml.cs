@@ -34,7 +34,7 @@ namespace GridGenerator
             {
                 theGrid.Visibility = Visibility.Hidden;
 
-                MessageBoxResult gridMessage = MessageBox.Show("You don't have a GRID set up. Please fill out the grid and save it before generating your password chain.");
+                MessageBoxResult gridMessage = MessageBox.Show("You don't have a GRID set up. Please fill out the grid and save it before generating response.");
 
                 if (gridMessage == MessageBoxResult.OK)
                 {
@@ -113,6 +113,12 @@ namespace GridGenerator
 
                 File.Delete(gridFile);
             }
+        }
+
+        private void Response_Click(object sender, RoutedEventArgs e)
+        {
+            GenerateResponse responseWindow = new GenerateResponse();
+            responseWindow.Show();
         }
     }
 }
