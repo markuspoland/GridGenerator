@@ -26,7 +26,7 @@ namespace GridGenerator
         public GenerateResponse()
         {
             InitializeComponent();
-            MessageBox.Show(txtChallenge.Text);
+            
         }
 
         private void GetResponse_Click(object sender, RoutedEventArgs e)
@@ -50,10 +50,21 @@ namespace GridGenerator
                     .Select(i => challenge.Substring(i * partSize, Math.Min(challenge.Length - i * partSize, partSize))).ToList();
 
                 var responseValues = CompareKeys(partChallenge);
-                var response = responseValues[0] + responseValues[1] + responseValues[2];
 
-                txtResponse.Text = response;
-                //MessageBox.Show(partChallenge[0] + " " + partChallenge[1] + " " + partChallenge[2]);
+                try
+                {
+                    var response = responseValues[0] + responseValues[1] + responseValues[2];
+                    txtResponse.Text = response;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Challenge invalid?? ");
+                }
+
+                
+
+                
+                
             }
 
         
@@ -90,6 +101,11 @@ namespace GridGenerator
 
 
             return values;
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

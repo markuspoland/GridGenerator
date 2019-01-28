@@ -7,16 +7,18 @@
         mc:Ignorable="d"
         Background="LightGray"
         ResizeMode="NoResize"
+        VerticalAlignment="Center"
+        HorizontalAlignment="Center"
         Title="GenerateResponse" Height="300" Width="500">
     <Grid>
         <Grid Height="200" Width="500" Margin="0, 0, 0, 50">
             <Label Content="Challenge" Margin="100, 15, 0, 0"></Label>
             <Label Content="Response" Margin="100, 105, 0, 0"></Label>
-            <TextBox Name="txtChallenge" Height="50" Width="300" Margin="0, 10, 0, 80" CharacterCasing="Upper" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+            <TextBox Name="txtChallenge" Height="50" Width="300" Margin="0, 10, 0, 80" CharacterCasing="Upper" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxLength="6"></TextBox>
             <TextBox Name="txtResponse" Height="50" Width="300" Margin="0, 10, 0, -100" IsReadOnly="True" Background="LightSlateGray"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
                         
         </Grid>
-        <Button Height="50" Width="140" VerticalAlignment="Bottom" Margin="0, 0, 160, 10" Content="Generate response" Click="GetResponse_Click"></Button>
-        <Button Height="50" Width="140" VerticalAlignment="Bottom" Margin="160, 0, 0, 10" Content="Close"></Button>
+        <Button Height="50" Width="140" VerticalAlignment="Bottom" Margin="6, 0, 160, 10" Content="Generate response" Click="GetResponse_Click"></Button>
+        <Button Height="50" Width="140" VerticalAlignment="Bottom" Margin="166, 0, 0, 10" Content="Close" Click="Close_Click"></Button>
     </Grid>
 </Window>

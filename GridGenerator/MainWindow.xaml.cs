@@ -118,7 +118,7 @@ namespace GridGenerator
         private void Response_Click(object sender, RoutedEventArgs e)
         {
             GenerateResponse responseWindow = new GenerateResponse();
-            responseWindow.Show();
+            responseWindow.ShowDialog();
         }
     }
 }
