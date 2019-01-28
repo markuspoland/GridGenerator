@@ -66,26 +66,29 @@ namespace GridGenerator
             var keys = challengeKeys.Values.ToList();
             List<string> values = new List<string>();
 
-            foreach (string val in keys)
-            {
-             
-            }
-
-            //foreach (KeyValuePair<string, string> key in challengeKeys)
+            //foreach (string val in keys)
             //{
-            //    if (key.Key == challengePart[index])
-            //    {
-            //        values.Add(key.Value);
-
-            //    } else
-            //    {
-            //        index++;
-            //    }
-
 
             //}
-            
-            
+
+            foreach (KeyValuePair<string, string> key in challengeKeys)
+            {
+
+                foreach (string val in challengePart)
+                {
+                    if (key.Key == val)
+                    {
+                        values.Add(key.Value);
+
+                    }
+                }
+                
+                
+
+
+            }
+
+
             return values;
         }
     }
